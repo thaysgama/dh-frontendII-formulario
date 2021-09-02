@@ -17,30 +17,56 @@ inputs.forEach(item => {
 });
 
 let addCard = (event) =>{
-  // cria article para armazenar card
-  let article = document.createElement('article')
-  containerCards.appendChild(article);
-
   let arrayValues=[];
   inputs.forEach(item=>arrayValues.push(item.value))
 
-  // imagem
-  let img = document.createElement('img')
-  img.setAttribute('src', arrayValues[2]);
+  if (verificacao(arrayValues[0], arrayValues[1], arrayValues[2])) {
+    // cria article para armazenar card
+    let article = document.createElement("article");
+    containerCards.appendChild(article);
 
-  // titulo
-  let titulo = document.createElement('h2')
-  titulo.innerHTML+=arrayValues[0]
-  
-  // descricão
-  let descricao = document.createElement('p')
-  descricao.innerHTML+=arrayValues[1]
+    // imagem
+    let img = document.createElement("img");
+    img.setAttribute("src", arrayValues[2]);
 
-  let elementos = [img,titulo,descricao];
-  elementos.forEach(item => article.appendChild(item))
+    // titulo
+    let titulo = document.createElement("h2");
+    titulo.innerHTML += arrayValues[0];
+
+    // descricão
+    let descricao = document.createElement("p");
+    descricao.innerHTML += arrayValues[1];
+
+    let elementos = [img, titulo, descricao];
+    elementos.forEach((item) => article.appendChild(item));
+  }   
   
   //não atualiza a pagina quando enviar
   event.preventDefault();
+}
+
+let verificacao = (titulo, descricao, url) =>{
+  titulo = titulo.trim();
+  descricao = descricao.trim();
+  url = url.trim();
+  if (titulo == ""){
+    alert("O campo título não pode estar vazio")
+    return false;
+  } else if(descricao ==""){
+    alert("O campo descrição não pode estar vazio")
+    return false;
+  } else if (url ==""){
+    alert("O campo url não pode estar vazio")
+    return false;
+  } else if (titulo.length >=30){
+    alert("O campo título não pode ter mais de 30 caracteres")
+    return false;
+  } else if (descricao.length >=300){
+    alert("O campo descrição não pode ter mais de 300 caracteres")
+    return false;
+  } else{
+    return true;
+  }
 }
 
 // submit event fires on the <form> element itself, and not on any <button> or <input type="submit"> inside it.
