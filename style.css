@@ -1,6 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 *{
     margin: 0;
-    font-family: sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1{
+    font-weight: 900;
+    color: rgb(255, 255, 255);
+    margin: 20px 0;
+    text-align: center;
 }
 
 label {
@@ -9,4 +19,55 @@ label {
 
 input:focus::placeholder {
     color: transparent;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+
+.container-form{
+    height: 250px;
+    width: 250px;
+    background-color: rgb(212, 49, 49);
+    box-shadow: rgba(0, 0, 0, 1) 1px 1px 4px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    margin: 25vh 0;
+}
+
+.campo-form{
+    margin-top: 10px;
+}
+
+input{
+    background: none;
+    border: none;
+    outline: none;
+    width: 150px;
+    height: 30px;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.5) 2px 1px 1px;
+}
+
+input:focus{
+    border: rgb(51, 51, 51) 2px solid;
+}
+
+button[type="submit"]{
+    border: none;
+    background: none;
+    width: 100px;
+    height: 25px;
+    background-color: rgb(34, 34, 34);
+    border-radius: 6px;
+    color: white;
+    margin: 14px 0;
+}
+
+button:active{
+    background-color: rgb(0, 0, 0);
+    color: rgb(221, 221, 221);
 }
