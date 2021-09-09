@@ -2,6 +2,11 @@ let inputs = document.querySelectorAll('input');
 let containerCards = document.querySelector('.container-cards');
 let form = document.querySelector('form')
 let uf = document.getElementById('UF');
+let json = {
+  'image': [],
+  'title:': [],
+  'description': []
+}
 
 // cria todas as opções de UF 
 let options = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'];
@@ -36,17 +41,21 @@ let addCard = (event) => {
     // imagem
     let img = document.createElement("img");
     img.setAttribute("src", arrayValues[2]);
-    localStorage.setItem('imagem', arrayValues[2])
+    // localStorage.setItem('imagem', arrayValues[2])
+    json.image.push(img);
 
     // titulo
     let titulo = document.createElement("h2");
     titulo.innerHTML += arrayValues[0];
-    localStorage.setItem('titulo', arrayValues[0])
+    // localStorage.setItem('titulo', arrayValues[0])
+    json.title.push(titulo)
 
     // descricão
     let descricao = document.createElement("p");
     descricao.innerHTML += arrayValues[1];
+    json.description.push(descricao);
 
+    localStorage.setItem('card', JSON.stringify(json));
 
     let elementos = [img, titulo, descricao];
     elementos.forEach((item) => article.appendChild(item));
@@ -84,9 +93,28 @@ let verificacao = (titulo, descricao, url) => {
 form.addEventListener('submit', addCard);
 
 window.onload = function () {
-    let img = document.createElement('img');
-    img.setAttribute('src', localStorage.getItem('imagem'))
-    let article = document.createElement("article");
-    article.appendChild(img)
-    containerCards.appendChild(article);
+  let obj = localStorage.getItem('card');
+  obj = JSON.parse(obj)
+
+  for (elements in obj.image){
+    containerCards.innerHTML += `<div><img src="${obj.image[elements]}">
+                                  <h2>${obj.title[elements]}</h2>
+                                  <p>${obj.description[elements]}</p></div>`
+    // json.imagem.push(obj.image[elements])    
+    // json.titulo.push(obj.title[elements])    
+    // json.descricao.push(obj.description[elements])
+  }
+
+  //codigo da aula passada
+    // let img = document.createElement('img');
+    // img.setAttribute('src', localStorage.getItem('imagem'))
+    // let article = document.createElement("article");
+    // article.appendChild(img)
+    // containerCards.appendChild(article);
+}
+
+
+
+function removeCards(){
+  localStorage.removeItem('card')
 }
