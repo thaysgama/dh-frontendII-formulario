@@ -5,49 +5,98 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <!-- inserir favicon -->
+    <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/0dd8173ea9.js" crossorigin="anonymous"></script>
     <!-- inserir as fontes do projeto -->
     <title>Doe Agora</title>
 </head>
 <body>
 
     <header>
-        <!-- podemos inserir um header -->
+        <nav>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+            </ul>
+            <button class="contato">CONTATO</button>
+        </nav>
     </header>
 
     <main>
-        <!-- container do formulário -->
-        <section class="container-form">
-            <form action="">
-                <!-- título do formulário -->
-                <h1>Doe Agora</h1>
+        <!-- container página principal -->
+        <section class="container-home" id="home"> 
 
-                <!-- campos do formulário -->
-                <div class="campo-form">
-                    <!-- o label é linkado com o input através do id -->
-                    <label for="titulo">Título</label>
-                    <input type="text" id="titulo" placeholder="Título" >
-                </div>
-                <div class="campo-form">
-                    <label for="descricao">Descrição</label>
-                    <input type="text" id="descricao" placeholder="Descrição">
-                </div>
-                <div class="campo-form">
-                    <label for="url-imagem">URL da imagem</label>
-                    <input type="url" id="url-imagem" placeholder="URL da imagem">
-                </div>
+            <h1>Doar é acreditar que a transformação é possível.</h1>
 
-                <!-- botão enviar -->
-                <button type="submit">Enviar</button>
-            </form>
+            <!-- container que engloba imagem que aparecerá na versão desktop -->
+            <div class="container-form-out">
+                <div class="ilustracao-doacao">
+                    <img class="img-doacao" src="./img/donation-image.svg" alt="ilustracao-doacao">
+                </div>
+    
+                <!-- container do formulário -->
+                <div class="container-form">
+                       
+                    <form action="">
+                        <!-- título do formulário -->
+                        <h2>Faça sua doação</h2>
+        
+                        <!-- campos do formulário -->
+                        <div class="campo-form">
+                            <!-- o label é linkado com o input através do id -->
+                            <label for="titulo">Título</label>
+                            <input type="text" id="titulo" placeholder="Título" >
+                        </div>
+                        <div class="campo-form">
+                            <label for="descricao">Descrição</label>
+                            <input type="text" id="descricao" placeholder="Descrição">
+                        </div>
+                        <div class="campo-form">
+                            <label for="url-imagem">URL da imagem</label>
+                            <input type="url" id="url-imagem" placeholder="URL da imagem">
+                        </div>
+                        <div class="campo-form">
+                            <label for="uf">UF</label>
+                            <select name="UF" id="UF">
+                                <option value="" disabled selected>Selecione seu estado</option>
+                            </select>
+                            
+                        </div>
+        
+                        <!-- botão enviar -->
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            
+
+        </section>
+
+        <section class="container-msg">
+            <h1>Apoie um projeto social</h1>
+            <p>Sua contribuição é fundamental para a manutenção e continuidade dos projetos que promovem amparo e proteção ao ser humano em todas as fases da vida.</p>
         </section>
 
         <!-- container que armazenará os cards criados em js -->
-        <section class="container-cards"></section>
+        <section class="container-cards">
+            <h1>Instituições que receberam ajuda</h1>
+        </section>
     </main>
 
     <footer>
-        <!-- podemos inserir um rodapé -->
+        <div class="redes-sociais">
+            <!-- icones do fontawesome -->
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+            <i class="fab fa-linkedin-in"></i>
+        </div>
+        <ul>
+            <li>Quem Somos</li>
+            <li>Seja um Doador</li>
+            <li>Informe-se</li>
+            <li>Como Ajudar?</li>
+        </ul>
     </footer>
     
     <script src="./js/script.js"></script>

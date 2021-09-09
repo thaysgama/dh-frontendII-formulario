@@ -1,6 +1,14 @@
 let inputs = document.querySelectorAll('input');
 let containerCards = document.querySelector('.container-cards');
 let form = document.querySelector('form')
+let uf = document.getElementById('UF');
+
+// cria todas as opções de UF 
+let options = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'];
+
+options.forEach(function(elemento, chave) {
+    uf.appendChild(new Option(elemento, chave));
+});
 
 //mostrar o label do elemento se o input estiver selecionado
 inputs.forEach(item => {
