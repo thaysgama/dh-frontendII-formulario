@@ -16,12 +16,17 @@ html{
 
 header{
     position:fixed; 
+    display: flex;
+}
+
+li{
+
 }
 
 .container-home{
     min-height: 100vh;
     max-width: 100%;
-    padding-bottom: 5rem ;
+    padding-bottom: 5rem;
 }
 
 .container-home, 
@@ -31,8 +36,11 @@ header{
 
 
 .container-form-out{
+    width: 550px;
+    margin: 0 auto;
     display: flex;
-    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 1) 1px 1px 4px;
+    border-radius: 4px;
 }
 
 h1{
@@ -46,6 +54,7 @@ h1{
 .img-doacao{
     height: 300px;
     display: none;
+    border-radius: 4px;
 }
 
 h2{
@@ -66,8 +75,7 @@ input:focus::placeholder {
 .container-form{
     height: 300px;
     width: 250px;
-    background-color: rgb(212, 49, 49);
-    box-shadow: rgba(0, 0, 0, 1) 1px 1px 4px;
+    background-color: #fff;
     border-radius: 4px;
     display: flex;
     justify-content: center;
@@ -84,9 +92,8 @@ input{
     outline: none;
     width: 150px;
     height: 30px;
-    background-color: white;
-    border-radius: 3px;
-    box-shadow: rgba(0, 0, 0, 0.5) 2px 1px 1px;
+    background-color: rgba(0, 0, 0, 0.09);
+    border-radius: 25px;
 }
 
 input:focus{
