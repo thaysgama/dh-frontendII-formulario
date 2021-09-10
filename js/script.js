@@ -1,10 +1,11 @@
 let inputs = document.querySelectorAll('input');
 let containerCards = document.querySelector('.container-cards');
-let form = document.querySelector('form')
+let form = document.querySelector('form');
+let titleCardSection = document.querySelector('.title-card-section');
 let uf = document.getElementById('UF');
 let json = {
   'image': [],
-  'title:': [],
+  'title': [],
   'description': []
 }
 
@@ -33,6 +34,7 @@ let addCard = (event) => {
   let arrayValues = [];
   inputs.forEach(item => arrayValues.push(item.value))
 
+  console.log(arrayValues)
   if (verificacao(arrayValues[0], arrayValues[1], arrayValues[2])) {
     // cria article para armazenar card
     let article = document.createElement("article");
@@ -45,7 +47,7 @@ let addCard = (event) => {
     json.image.push(img);
 
     // titulo
-    let titulo = document.createElement("h2");
+    let titulo = document.createElement("h4");
     titulo.innerHTML += arrayValues[0];
     // localStorage.setItem('titulo', arrayValues[0])
     json.title.push(titulo)
@@ -55,10 +57,13 @@ let addCard = (event) => {
     descricao.innerHTML += arrayValues[1];
     json.description.push(descricao);
 
-    localStorage.setItem('card', JSON.stringify(json));
+    // localStorage.setItem('card', JSON.stringify(json));
 
     let elementos = [img, titulo, descricao];
     elementos.forEach((item) => article.appendChild(item));
+
+    titleCardSection.classList.remove('inactive');
+    
   }
 
   //não atualiza a pagina quando enviar
@@ -92,18 +97,21 @@ let verificacao = (titulo, descricao, url) => {
 // submit event fires on the <form> element itself, and not on any <button> or <input type="submit"> inside it.
 form.addEventListener('submit', addCard);
 
+
 window.onload = function () {
   let obj = localStorage.getItem('card');
   obj = JSON.parse(obj)
 
   for (elements in obj.image){
     containerCards.innerHTML += `<div><img src="${obj.image[elements]}">
-                                  <h2>${obj.title[elements]}</h2>
+                                  <h4>${obj.title[elements]}</h4>
                                   <p>${obj.description[elements]}</p></div>`
-    // json.imagem.push(obj.image[elements])    
-    // json.titulo.push(obj.title[elements])    
-    // json.descricao.push(obj.description[elements])
+
+    json.imagem.push(obj.image[elements])    
+    json.titulo.push(obj.title[elements])    
+    json.descricao.push(obj.description[elements])
   }
+  
 
   //codigo da aula passada
     // let img = document.createElement('img');
@@ -115,6 +123,6 @@ window.onload = function () {
 
 
 
-function removeCards(){
-  localStorage.removeItem('card')
-}
+// function removeCards(){
+//   localStorage.removeItem('card')
+// }

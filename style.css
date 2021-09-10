@@ -10,8 +10,42 @@ html{
     font-family: 'Roboto', sans-serif;
 }
 
+.inactive{
+    display: none;
+}
+
 header{
     position:fixed; 
+}
+
+.container-home{
+    min-height: 100vh;
+    max-width: 100%;
+    padding-bottom: 5rem ;
+}
+
+.container-home, 
+.container-cards{
+    background-image: linear-gradient(to bottom, #c6ff00, #edea2c, #ffd650, #ffc670, #ffbc8d);
+}
+
+
+.container-form-out{
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    font-size: 1.5rem;
+    width: 250px;
+    margin: 0 auto;
+    padding: 5rem 0 2rem;
+    text-align: center;
+}
+
+.img-doacao{
+    height: 300px;
+    display: none;
 }
 
 h2{
@@ -27,36 +61,6 @@ label {
 
 input:focus::placeholder {
     color: transparent;
-}
-
-.container-home{
-    height: 100vh;
-    max-width: 100%;
-}
-
-.container-home, 
-.container-cards{
-    background-image: linear-gradient(to bottom, #c6ff00, #edea2c, #ffd650, #ffc670, #ffbc8d);
-}
-
-
-.container-form-out{
-    display: flex;
-    justify-content: center;
-}
-
-h1{
-    height: 30%;
-    font-size: 2rem;
-    display: flex;
-    align-items: center;
-    max-width: 550px;
-    margin: 0 auto;
-}
-
-.img-doacao{
-    height: 300px;
-    display: none;
 }
 
 .container-form{
@@ -105,9 +109,29 @@ button:active{
     color: rgb(221, 221, 221);
 }
 
+.container-msg{
+    text-align: center;
+}
+
+h3{
+    font-size: 1rem;
+    font-weight: 200;
+    padding: 3rem;
+}
+
+
 
 @media (min-width: 700px){
     .img-doacao{
         display: block;
+    }
+
+    h1{
+        font-size: 2.5rem;
+        width: 560px;
+    }
+    h3{
+        font-size: 1.3rem;
+        padding: 3rem 10rem;
     }
 }
