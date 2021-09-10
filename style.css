@@ -15,18 +15,36 @@ html{
 }
 
 header{
-    position:fixed; 
+    position:fixed;
     display: flex;
+    height: 50px;
+    width: 100%;
+    background-color: #c6ff00;
+    justify-content: center;
+    align-items: center;
 }
 
 li{
+    list-style: none;
+}
 
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+nav{
+    width: 250px;
+    display: flex;
+    justify-content:space-between;
+    color: #000;
+    text-decoration: none;
 }
 
 .container-home{
     min-height: 100vh;
     max-width: 100%;
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
 }
 
 .container-home, 
@@ -36,11 +54,12 @@ li{
 
 
 .container-form-out{
-    width: 550px;
+    width: 250px;
     margin: 0 auto;
     display: flex;
     box-shadow: rgba(0, 0, 0, 1) 1px 1px 4px;
     border-radius: 4px;
+    background-color: #fff;
 }
 
 h1{
@@ -79,7 +98,7 @@ input:focus::placeholder {
     border-radius: 4px;
     display: flex;
     justify-content: center;
-    /* margin: 25vh 0; */
+    text-align: center;
 }
 
 .campo-form{
@@ -100,15 +119,23 @@ input:focus{
     border: rgb(51, 51, 51) 2px solid;
 }
 
-button[type="submit"]{
+button{
     border: none;
     background: none;
     width: 100px;
     height: 25px;
-    background-color: rgb(34, 34, 34);
-    border-radius: 6px;
-    color: white;
+    background-color: #c6ff00;
+    border-radius: 25px;
+}
+
+.contato{
+    background-color: #000;
+    color: #fff;
+}
+
+button[type="submit"]{
     margin: 14px 0;
+    background-color: #c6ff00;
 }
 
 button:active{
@@ -126,9 +153,35 @@ h3{
     padding: 3rem;
 }
 
+footer{
+    text-align: center;
+}
+
+i{
+    padding: 20px;
+}
+
+.footer-links{
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+}
+
+.footer-links li{
+    padding: 10px 20px;
+}
 
 
 @media (min-width: 700px){
+    nav{
+        width: 550px;;
+    }
+    
+    .container-form-out{
+        width: 550px;
+    }
+
     .img-doacao{
         display: block;
     }
