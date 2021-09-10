@@ -33,9 +33,9 @@ inputs.forEach(item => {
 let addCard = (event) => {
   let arrayValues = [];
   inputs.forEach(item => arrayValues.push(item.value))
+  arrayValues.push(uf.options[uf.selectedIndex].text)
 
-  console.log(arrayValues)
-  if (verificacao(arrayValues[0], arrayValues[1], arrayValues[2])) {
+  if (verificacao(arrayValues[0], arrayValues[1], arrayValues[2], arrayValues[3])) {
     // cria article para armazenar card
     let article = document.createElement("article");
     containerCards.appendChild(article);
@@ -43,19 +43,17 @@ let addCard = (event) => {
     // imagem
     let img = document.createElement("img");
     img.setAttribute("src", arrayValues[2]);
-    // localStorage.setItem('imagem', arrayValues[2])
-    json.image.push(img);
+    json.image.push(arrayValues[2]);
 
     // titulo
     let titulo = document.createElement("h4");
     titulo.innerHTML += arrayValues[0];
-    // localStorage.setItem('titulo', arrayValues[0])
-    json.title.push(titulo)
+    json.title.push(arrayValues[0])
 
     // descricão
     let descricao = document.createElement("p");
     descricao.innerHTML += arrayValues[1];
-    json.description.push(descricao);
+    json.description.push(arrayValues[1]);
 
     localStorage.setItem('card', JSON.stringify(json));
 
@@ -70,10 +68,11 @@ let addCard = (event) => {
   event.preventDefault();
 }
 
-let verificacao = (titulo, descricao, url) => {
+let verificacao = (titulo, descricao, url, estado) => {
   titulo = titulo.trim();
   descricao = descricao.trim();
   url = url.trim();
+  estado = estado.trim()
   if (titulo == "") {
     alert("O campo título não pode estar vazio")
     return false;
@@ -89,7 +88,11 @@ let verificacao = (titulo, descricao, url) => {
   } else if (descricao.length >= 300) {
     alert("O campo descrição não pode ter mais de 300 caracteres")
     return false;
-  } else {
+  } else if (estado === 'Selecione seu estado'){
+    alert("O campo UF não foi escolhido")
+    return false
+  }
+  else {
     return true;
   }
 }
@@ -101,24 +104,15 @@ form.addEventListener('submit', addCard);
 window.onload = function () {
   let obj = localStorage.getItem('card');
   obj = JSON.parse(obj)
-
+  if(!obj) return
   for (elements in obj.image){
     containerCards.innerHTML += `<div><img src="${obj.image[elements]}">
                                   <h4>${obj.title[elements]}</h4>
                                   <p>${obj.description[elements]}</p></div>`
-
-    json.imagem.push(obj.image[elements])    
-    json.titulo.push(obj.title[elements])    
-    json.descricao.push(obj.description[elements])
+    json.image.push(obj.image[elements])    
+    json.title.push(obj.title[elements])    
+    json.description.push(obj.description[elements])
   }
-  
-
-  //codigo da aula passada
-    // let img = document.createElement('img');
-    // img.setAttribute('src', localStorage.getItem('imagem'))
-    // let article = document.createElement("article");
-    // article.appendChild(img)
-    // containerCards.appendChild(article);
 }
 
 
