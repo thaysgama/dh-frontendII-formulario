@@ -57,7 +57,7 @@ let addCard = (event) => {
     descricao.innerHTML += arrayValues[1];
     json.description.push(descricao);
 
-    // localStorage.setItem('card', JSON.stringify(json));
+    localStorage.setItem('card', JSON.stringify(json));
 
     let elementos = [img, titulo, descricao];
     elementos.forEach((item) => article.appendChild(item));
@@ -123,6 +123,8 @@ window.onload = function () {
 
 
 
-// function removeCards(){
-//   localStorage.removeItem('card')
-// }
+function removeCards(){
+  localStorage.removeItem('card')
+}
+
+// removeCards()
