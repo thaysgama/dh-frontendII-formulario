@@ -19,14 +19,16 @@ options.forEach(function(elemento, chave) {
 //mostrar o label do elemento se o input estiver selecionado
 inputs.forEach(item => {
   item.addEventListener('focus', () => {
-    item.labels[0].style.display = "block";
+    item.labels[0].style.color = "#1A1A1A";
+    item.style.paddingTop = "8px"
   })
 });
 
 //volta o label do elemento para o estado oculto quando não selecionado (blur é o oposto de focus)
 inputs.forEach(item => {
   item.addEventListener('blur', () => {
-    item.labels[0].style.display = "";
+    item.labels[0].style.color = "transparent";
+    item.style.paddingTop = "0px"
   })
 });
 
