@@ -108,12 +108,13 @@ window.onload = function () {
   obj = JSON.parse(obj)
   if(!obj) return
   for (elements in obj.image){
-    containerCards.innerHTML += `<div><img src="${obj.image[elements]}">
+    containerCards.innerHTML += `<article><img src="${obj.image[elements]}">
                                   <h4>${obj.title[elements]}</h4>
-                                  <p>${obj.description[elements]}</p></div>`
+                                  <p>${obj.description[elements]}</p></article>`
     json.image.push(obj.image[elements])    
     json.title.push(obj.title[elements])    
     json.description.push(obj.description[elements])
+    titleCardSection.classList.remove('inactive');
   }
 }
 
@@ -123,4 +124,4 @@ function removeCards(){
   localStorage.removeItem('card')
 }
 
-// removeCards()
+removeCards()
