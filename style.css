@@ -33,12 +33,30 @@ a{
     color: #000;
 }
 
+#home-button{
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+#home-button i{
+    padding-right: 5px;
+    font-size: 20px;
+}
+
+.contato a{
+    font-style: none;
+    color: white;
+    padding: 6px 20px;
+    border-radius: 25px;
+}
+
 nav{
     width: 250px;
     display: flex;
     justify-content:space-between;
     color: #000;
     text-decoration: none;
+    align-items: center;
 }
 
 .container-home{
