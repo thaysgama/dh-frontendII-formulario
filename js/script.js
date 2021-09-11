@@ -6,7 +6,8 @@ let uf = document.getElementById('UF');
 let json = {
   'image': [],
   'title': [],
-  'description': []
+  'description': [],
+  'unidadeFederativa': []
 }
 
 // cria todas as opções de UF 
@@ -51,6 +52,11 @@ let addCard = (event) => {
     let titulo = document.createElement("h4");
     titulo.innerHTML += arrayValues[0];
     json.title.push(arrayValues[0])
+    
+    //uf
+    let estado = document.createElement("h4")
+    estado.innerHTML += arrayValues[3]
+    json.unidadeFederativa.push(arrayValues[3])
 
     // descricão
     let descricao = document.createElement("p");
@@ -59,7 +65,7 @@ let addCard = (event) => {
 
     localStorage.setItem('card', JSON.stringify(json));
 
-    let elementos = [img, titulo, descricao];
+    let elementos = [img, titulo, estado, descricao];
     elementos.forEach((item) => article.appendChild(item));
 
     titleCardSection.classList.remove('inactive');
@@ -106,14 +112,17 @@ form.addEventListener('submit', addCard);
 window.onload = function () {
   let obj = localStorage.getItem('card');
   obj = JSON.parse(obj)
+  console.log(obj)
   if(!obj) return
   for (elements in obj.image){
     containerCards.innerHTML += `<article><img src="${obj.image[elements]}">
-                                  <h4>${obj.title[elements]}</h4>
+                                  <div><h4>${obj.title[elements]}</h4>
+                                  <h4>${obj.unidadeFederativa[elements]}</h4></div>
                                   <p>${obj.description[elements]}</p></article>`
     json.image.push(obj.image[elements])    
     json.title.push(obj.title[elements])    
     json.description.push(obj.description[elements])
+    json.unidadeFederativa.push(obj.unidadeFederativa[elements])
     titleCardSection.classList.remove('inactive');
   }
 }
@@ -124,4 +133,4 @@ function removeCards(){
   localStorage.removeItem('card')
 }
 
-removeCards()
+// removeCards()
