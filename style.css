@@ -22,6 +22,7 @@ header{
     background-color: #c6ff00;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 
 li{
@@ -109,6 +110,7 @@ label {
     top: 15px;
     left: 15px;
     user-select: none;
+    font-weight: lighter;
 }
 
 input[type="text"],
@@ -168,12 +170,29 @@ button{
     color: #fff;
 }
 
+.contato:hover{
+    background-color: rgb(34, 34, 34);
+}
+
+.contato a:active{
+    color: #e7e7e7;
+}
+
+button:hover{
+    transform: scale(1.03);
+    transition: all 0.5s ease-out;
+}
+
 button[type="submit"]{
     margin: 14px 0;
     background-color: #c6ff00;
 }
 
-button:active{
+button[type="submit"]:hover{
+    background-color: #b5e700;
+}
+
+button[type="submit"]:active{
     background-color: rgb(0, 0, 0);
     color: rgb(221, 221, 221);
 }
@@ -188,11 +207,24 @@ button:active{
     justify-content: center;
 }
 
+
+
 article{
     margin: 30px;
     border-radius: 10px;
     background-color: #fff;
     width: 300px;
+    box-shadow: rgba(0, 0, 0, 1) 1px 1px 4px;
+}
+
+article:hover{
+    transform: scale(1.03);
+    transition: transform 0.5s ease-out;
+}
+
+article div{
+    display: flex;
+    justify-content: space-between;
 }
 
 article img{
@@ -231,6 +263,16 @@ i{
 .footer-links li{
     padding: 10px 20px;
 }
+
+footer i:hover{
+    color: #ffd650;
+}
+
+ 
+.footer-links a:hover, #home-button:hover{
+    color: rgb(66, 66, 66);
+}
+
 
 
 @media (min-width: 700px){

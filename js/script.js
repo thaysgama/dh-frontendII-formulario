@@ -48,6 +48,9 @@ let addCard = (event) => {
     img.setAttribute("src", arrayValues[2]);
     json.image.push(arrayValues[2]);
 
+    // div titulo - uf
+    let div = document.createElement("div");
+
     // titulo
     let titulo = document.createElement("h4");
     titulo.innerHTML += arrayValues[0];
@@ -65,8 +68,11 @@ let addCard = (event) => {
 
     localStorage.setItem('card', JSON.stringify(json));
 
-    let elementos = [img, titulo, estado, descricao];
+
+    let elementos = [img, div, descricao];
     elementos.forEach((item) => article.appendChild(item));
+    div.appendChild(titulo);
+    div.appendChild(estado);
 
     titleCardSection.classList.remove('inactive');
     
@@ -112,7 +118,6 @@ form.addEventListener('submit', addCard);
 window.onload = function () {
   let obj = localStorage.getItem('card');
   obj = JSON.parse(obj)
-  console.log(obj)
   if(!obj) return
   for (elements in obj.image){
     containerCards.innerHTML += `<article><img src="${obj.image[elements]}">
